@@ -5,12 +5,17 @@ import AddPerson from '../view/AddPerson.vue'
 const routes = [
   {
     name: 'Home',
-    path: '/',    
+    path: '',
     component: Home
   },
-  {   
+  {
+    name: 'Home',
+    path: '/',
+    component: Home
+  },
+  {
     name: 'AddPerson',
-    path: '/addPerson',   
+    path: '/addPerson',
     component: AddPerson
   },
 ];

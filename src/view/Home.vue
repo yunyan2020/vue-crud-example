@@ -15,11 +15,11 @@
       
     </div>
   </div>  
-  <Modal :personId=personId  v-show="showModal" v-on:closeMe="closeMe"></Modal>  
+  <EditPerson :personId=personId  v-show="showModal" v-on:closeMe="closeMe"></EditPerson>  
 </template>
 
 <script>
-import Modal from '../components/Modal.vue';
+import EditPerson from '../components/EditPerson.vue';
 export default {
   data() {
     return {
@@ -44,7 +44,7 @@ export default {
       this.showModal = !this.showModal;
     }
   },
-  components: {Modal},
+  components: {EditPerson},
 };
 </script>
 
