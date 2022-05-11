@@ -5,8 +5,8 @@
           <h3>Person Maintenance</h3>
         </div>
         <div class="modal-body">
-            <input class="input" type="text" placeholder="Name"  v-model="this.input">
-            <input class="input" type="text" placeholder="Phone" v-model="this.input">
+            <input class="input" type="text" placeholder="Name"  v-model="name">
+            <input class="input" type="text" placeholder="Phone" v-model="phoneNr">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn-close"  @click="closeSelf">Close</button>
@@ -31,6 +31,12 @@ export default {
     },
     save(){
       console.log("personId",this.personId)
+      let person = {
+        id:this.personId,
+        name:this.name,
+        phoneNr:this.phoneNr
+      }
+      this.$store.commit("updatePerson", person)
 
     }
   }
@@ -95,7 +101,6 @@ export default {
     background-color: #2d8cf0;
 }
  .input{
-   color: white;
     font-size: 14px;
     gap: 1em;
     font-weight: 900; 

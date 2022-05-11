@@ -1,17 +1,18 @@
 <template>
   <h1>Home Page</h1>
   <div class="container">
-    <button @click="toggleModal">Add Person</button>
+    <router-link :to="'/addPerson'"> Add Person</router-link>
     <div
-      class="context"
+      class="context" 
       v-for="(person, index) in allPeople"
       v-bind:key="index"
     >
-      <p>
-        Name:{{ person.name }}, PhoneNr:{{ person.phoneNr }},City:{{person.city}}
-        <button @click="deletePerson(person.id)">❌</button>
-        <button @click="toggleModal(person.id)">✏️</button>                
-      </p>
+      <p >
+        Name:{{ person.name }}, PhoneNr:{{ person.phoneNr }}         
+       <button class="btn" @click="deletePerson(person.id)">❌</button>
+       <button class="btn" @click="editPerson(person.id)">✏️</button>                             
+      </p> 
+      
     </div>
   </div>  
   <Modal :personId=personId  v-show="showModal" v-on:closeMe="closeMe"></Modal>  
@@ -35,8 +36,8 @@ export default {
     deletePerson(id) {
       this.$store.commit("deletePerson", id);
     },
-     toggleModal(id){
-       this.personId = id;
+     editPerson(id){
+      this.personId = id;
       this.showModal = !this.showModal;
     },
     closeMe:function(){
@@ -53,7 +54,7 @@ export default {
   text-align: left;
 }
 
-.span.button:hover {
+.btn {
   cursor: pointer;
 }
 </style>
